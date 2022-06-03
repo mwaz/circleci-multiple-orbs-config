@@ -1,0 +1,96 @@
+############################# Multiple Orbs ###############################
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+  python: circleci/python@2.0.3
+
+jobs:
+  test-python-app:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          app-dir: ~/project/flask-api
+          pip-dependency-file: requirements.txt
+          pkg-manager: pip
+      - run:
+          command: |
+            pytest -v
+          name: Test
+  test-node-app:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          app-dir: ~/project/nodejs-cli
+          cache-path: ~/project/nodejs-cli/node_modules
+          override-ci-command: npm install
+      - run:
+          command: |
+            npm run test
+          working_directory: ~/project/nodejs-cli
+
+workflows:
+  test:
+    jobs:
+      - test-python-app
+      - test-node-app
+
+
+####################### Without Orbs ########################
+
+
+# version: 2.1
+# jobs:
+#   test-python-app:
+#     working_directory: ~/CircleCI-MultipleOrbs/flask-api
+#     docker:
+#       - image: cimg/python:3.9.2
+#     steps:
+#       - checkout:
+#           path: ~/CircleCI-MultipleOrbs
+#       - run:
+#           name: Install pip packages
+#           command: |
+#             python3 -m venv venv
+#             . venv/bin/activate
+#             pip install -r requirements.txt
+
+#       - run:
+#           name: Test with pytest
+#           command: |
+#             . venv/bin/activate
+#             pytest
+            
+#   test-node-app:
+#     working_directory: ~/CircleCI-MultipleOrbs/nodejs-cli
+#     docker:
+#       - image: cimg/node:10.16.3
+#     steps:
+#       - checkout:
+#           path: ~/CircleCI-MultipleOrbs
+#       - run:
+#           name: update npm
+#           command: "npm install -g npm@5"
+#       - restore_cache:
+#           key: dependency-cache-{{ checksum "package-lock.json" }}
+#       - run:
+#           name: install dependencies
+#           command: npm install
+#       - save_cache:
+#           key: dependency-cache-{{ checksum "package-lock.json" }}
+#           paths:
+#             - ./node_modules
+#       - run:
+#           name: run tests
+#           command: npm test
+#       - store_artifacts:
+#           path: ~/palatial-cakes-cli/__tests__
+
+
+# workflows:
+#   test:
+#     jobs:
+#       - test-python-app
+#       - test-node-app

@@ -1,0 +1,32 @@
+{
+  "name": "patry-palace",
+  "version": "1.0.0",
+  "description": "Node Command Line Application",
+  "main": "/bin/index.js",
+  "scripts": {
+    "test": "jest",
+    "order-cake": "node ./bin/index.js order-cake",
+    "list-cakes": "node ./bin/index.js list"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mbarak-Mbigo/node-cli-app.git"
+  },
+  "author": "Mbarak Mbigo",
+  "license": "MIT",
+  "bin": {
+    "palatial-cakes-cli": "/bin/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Mbarak-Mbigo/node-cli-app/issues"
+  },
+  "homepage": "https://github.com/Mbarak-Mbigo/node-cli-app#readme",
+  "dependencies": {
+    "commander": "^8.3.0",
+    "inquirer": "^8.2.0",
+    "inquirer-test": "^2.0.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
