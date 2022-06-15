@@ -17,19 +17,42 @@ git clone git@github.com:mwaz/circleci-multiple-orbs-config.git
 cd circleci-multiple-orbs-config
 ```
 
-## Install the dependencies
+## Install the dependencies - JS
 
 Install the dependencies using the following command:
 
 ```bash
+cd nodejs-cli
+
 npm install
 ```
 
-## Running tests
+## Install the dependencies - Python
+
+Install the dependencies using the following command:
 
 ```bash
+cd flask-api
+
+pip install -r requirements.txt
+```
+
+## Running tests - JS
+
+```bash
+cd nodejs-cli
+
 npm test
 ```
+
+## Running tests - Python
+
+```bash
+cd flask-api
+
+pytest
+```
+
 ## Details
 
 This repo is built following a tutorial published on CircleCI blog under the CircleCI Guest Writer Program.
