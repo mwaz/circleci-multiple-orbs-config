@@ -1,45 +1,5 @@
-############################# Multiple Orbs ###############################
-# version: 2.1
-
-# orbs:
-#   node: circleci/node@5.0.2
-#   python: circleci/python@2.0.3
-
-# jobs:
-#   test-python-app:
-#     executor: python/default
-#     steps:
-#       - checkout
-#       - python/install-packages:
-#           app-dir: ~/project/flask-api
-#           pip-dependency-file: requirements.txt
-#           pkg-manager: pip
-#       - run:
-#           command: |
-#             pytest -v
-#           name: Test
-#   test-node-app:
-#     executor: node/default
-#     steps:
-#       - checkout
-#       - node/install-packages:
-#           app-dir: ~/project/nodejs-cli
-#           cache-path: ~/project/nodejs-cli/node_modules
-#           override-ci-command: npm install
-#       - run:
-#           command: |
-#             npm run test
-#           working_directory: ~/project/nodejs-cli
-
-# workflows:
-#   test:
-#     jobs:
-#       - test-python-app
-#       - test-node-app
-
 
 ####################### Without Orbs ########################
-
 
 version: 2.1
 jobs:
