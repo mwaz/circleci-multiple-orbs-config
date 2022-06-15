@@ -1,9 +1,44 @@
-### Installation
-                    
-### Clone the git repo
-                    
-```bash
-git https://github.com/mwaz/circleci-hybrid-app
-```
-After cloning, proceed with the setup instructions availabe in each project directory.
+# Multiple CircleCI Orbs Pipeline Configuration
 
+[![CircleCI](https://circleci.com/gh/mwaz/circleci-multiple-orbs-config.svg?style=svg)](https://circleci.com/gh/mwaz/circleci-multiple-orbs-config)
+
+<p align="center"><img src="https://avatars3.githubusercontent.com/u/59034516"></p>
+
+An Application for showing how to configure multiple CircleCI orbs on CI
+
+
+## Clone the repository:
+
+run the following command on your terminal to clone the repository:
+
+```bash
+git clone git@github.com:mwaz/circleci-multiple-orbs-config.git
+
+cd circleci-multiple-orbs-config
+```
+
+## Install the dependencies
+
+Install the dependencies using the following command:
+
+```bash
+npm install
+```
+
+## Running tests
+
+```bash
+npm test
+```
+## Details
+
+This repo is built following a tutorial published on CircleCI blog under the CircleCI Guest Writer Program.
+
+-   Blog post: [ Multiple CircleCI Orbs Pipeline Configuration][blog]
+-   Author's GitHub profile: [Waweru Mwaura][author]
+
+### About CircleCI Guest Writer Program
+
+
+[blog]: https://circleci.com/blog/multiple-circleci-orbs-pipeline-configuration/
+[author]: https://github.com/mwaz
